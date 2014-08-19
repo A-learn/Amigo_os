@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/big_window_layout"
+    android:layout_width="200dip"
+    android:layout_height="250dip"
+    android:background="@drawable/bg_float_window_big"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/motorStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_gravity="left"
+        android:layout_marginLeft="10dip"
+        android:layout_marginTop="5dip"
+        android:textColor="#ffffff"
+        android:text="motorStatus" />
+
+    <TextView
+        android:id="@+id/batteryStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/motorStatus"
+        android:layout_gravity="left"
+        android:layout_marginLeft="10dip"
+        android:layout_marginTop="5dip"
+        android:textColor="#ffffff"
+        android:text="batteryStatus" />
+
+    <TextView
+        android:id="@+id/position"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/batteryStatus"
+        android:layout_gravity="left"
+        android:layout_marginLeft="10dip"
+        android:layout_marginTop="5dip"
+        android:textColor="#ffffff"
+        android:text="position" />
+
+    <TextView
+        android:id="@+id/sonar1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/position"
+        android:layout_gravity="left"
+        android:layout_marginLeft="10dip"
+        android:layout_marginTop="5dip"
+        android:textColor="#ffffff"
+        android:text="sonar1" />
+
+    <TextView
+        android:id="@+id/sonar2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/sonar1"
+        android:layout_gravity="left"
+        android:layout_marginLeft="10dip"
+        android:layout_marginTop="5dip"
+        android:textColor="#ffffff"
+        android:text="sonar2" />
+
+    <TextView
+        android:id="@+id/sonar3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/sonar2"
+        android:layout_gravity="left"
+        android:layout_marginLeft="10dip"
+        android:layout_marginTop="5dip"
+        android:textColor="#ffffff"
+        android:text="sonar3" />
+
+    <TextView
+        android:id="@+id/sonar4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/sonar3"
+        android:layout_gravity="left"
+        android:layout_marginLeft="10dip"
+        android:layout_marginTop="5dip"
+        android:textColor="#ffffff"
+        android:text="sonar4" />
+
+    <TextView
+        android:id="@+id/sonar5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/sonar4"
+        android:layout_gravity="left"
+        android:layout_marginLeft="10dip"
+        android:layout_marginTop="5dip"
+        android:textColor="#ffffff"
+        android:text="sonar5" />
+
+    <TextView
+        android:id="@+id/sonar6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/sonar5"
+        android:layout_gravity="left"
+        android:layout_marginLeft="10dip"
+        android:layout_marginTop="5dip"
+        android:textColor="#ffffff"
+        android:text="sonar6" />
+
+    <TextView
+        android:id="@+id/sonar7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/sonar6"
+        android:layout_gravity="left"
+        android:layout_marginLeft="10dip"
+        android:layout_marginTop="5dip"
+        android:textColor="#ffffff"
+        android:text="sonar7" />
+
+    <TextView
+        android:id="@+id/sonar8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/sonar7"
+        android:layout_gravity="left"
+        android:layout_marginLeft="10dip"
+        android:layout_marginTop="5dip"
+        android:textColor="#ffffff"
+        android:text="sonar8" />
+
+    <Button
+        android:id="@+id/back"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_above="@+id/batteryStatus"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="X" />
+
+</RelativeLayout>
