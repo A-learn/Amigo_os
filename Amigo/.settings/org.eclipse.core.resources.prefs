@@ -1,6 +1,7 @@
 eclipse.preferences.version=1
 encoding//res/layout/monitor_view.xml=UTF-8
 encoding//src/com/control/amigo/FloatWindowManager.java=UTF-8
+encoding//src/com/control/amigo/FloatWindowService.java=UTF-8
 encoding//src/com/control/amigo/FloatWindowSmallView.java=UTF-8
 encoding//src/com/control/amigo/FragtabsActivity.java=UTF-8
 encoding//src/com/control/amigo/Monitor.java=UTF-8
