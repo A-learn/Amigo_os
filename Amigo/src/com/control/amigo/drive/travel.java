@@ -32,6 +32,8 @@ public class travel implements Runnable {
 				
 					//Comm.resetPosition
 				pathgo(vi);
+//				Thread.sleep(3000);
+				t=true;
 //				countcirle co=new countcirle();
 //				co.start();
 //				avoi.start();

@@ -45,7 +45,7 @@ public class Monitor extends Fragment implements OnClickListener {
 	private Button startMonitor;
 	private EditText sour,dest;
 	private TextView txt;
-	private connPC pc;
+
 	static boolean reach=false;
 	static boolean startthr=false;
 	 private SensorManager mSensorManager;
@@ -102,7 +102,6 @@ public class Monitor extends Fragment implements OnClickListener {
 				try {
 					startMonitor.setText("start");
 					BluetoothService.Amigo.stoptravel();
-					pc.setfin(true);
 					rv.setstop(true);
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
@@ -154,6 +153,7 @@ public class Monitor extends Fragment implements OnClickListener {
 	****/
          int[] path=new int [8];
          int thc=0;
+         connPC pc=new connPC();
 	 class rev implements Runnable{
 		 private boolean stop=false;
 		@Override
@@ -176,30 +176,38 @@ public class Monitor extends Fragment implements OnClickListener {
 				
 			int mode=-1;
 			 infoth ifo=new infoth();
+			
 				while(stop==false){
 					
-					startthr=false;
+					int premode=mode;
+					if(premode!=mode||mode==-1){
+						ifo.setstop(true);
+						
+						 ifo=new infoth();
+						ifo.setstop(false);
+						new Thread(ifo).start();
+					}
+					Log.i("path","pc");
+//					pc.setfin(true);
 					pc=new connPC();
 					pc.start();
-					Thread.sleep(1500);
-
+					Log.i("path","pcstart");
+					
+					while(pc.getlogin()==false){
+						}
+					Log.i("path","login"+pc.getlogin()+"1");
+					
 				int cx=0;
 				
-				int premode=mode;
-				 mode=connPC.pcin.readInt();
 				
-				if(premode!=mode){
-					ifo.setstop(true);
-					
-					 ifo=new infoth();
-					ifo.setstop(false);
-					new Thread(ifo).start();
-				}
+				 mode=connPC.pcin.readInt();
+				 Log.i("path","mode");
+				
 				if(mode==0||mode==1){
 					
 				
 				int dx=connPC.pcin.readInt();
-
+				Log.i("path","length");
 				path[0]=-5;
 				path[1]=-5;
 				path=new int[dx];
@@ -209,9 +217,12 @@ public class Monitor extends Fragment implements OnClickListener {
 			        }
 
 				if(BluetoothService.Amigo.checktr()==true){//travel unstart or stop
-					BluetoothService.Amigo.starttravel(path);			
+					BluetoothService.Amigo.starttravel(path);
+					for(int i=0;i<path.length;i++){
+						Log.i("path",""+path[i]);
+						}
 					}
-					
+				
 				}//if0.1
 				
 				if(mode==2){
@@ -236,7 +247,7 @@ public class Monitor extends Fragment implements OnClickListener {
 					}
 					
 					}//mode2
-					pc.setfin(true);
+					//pc.setfin(true);
 				}//while
 	
 //				String pp=sour.getText().toString(); 
@@ -249,9 +260,12 @@ public class Monitor extends Fragment implements OnClickListener {
 			}//try
 			 catch (NumberFormatException e) {
 				// TODO Auto-generated catch block
+				 Log.i("path","monitor catch"+pc.getlogin());
+				
 				e.printStackTrace();
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
+				 Log.i("path","monitor catch"+pc.getlogin());
 				e.printStackTrace();
 					}
 				
@@ -278,6 +292,13 @@ public class Monitor extends Fragment implements OnClickListener {
 							new OutputStreamWriter(infosock.getOutputStream())); 
 					
 					while(stop==false){
+						if(BluetoothService.Amigo.checktr()==true){
+							reach=true;
+							BluetoothService.Amigo.stoptravel();
+						}
+						else {
+							reach=false;
+						}
 						infoout.println("Battery: "+PacketReceiver.mAmigoInfo.getBattery()+"Stall: "+PacketReceiver.mAmigoInfo.getstall()
 								+"reach: "+reach);
 						infoout.flush();
@@ -290,6 +311,9 @@ public class Monitor extends Fragment implements OnClickListener {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}

@@ -20,14 +20,14 @@ import com.control.amigo.drive.PacketReceiver;
 public class connPC extends Thread{
 	
 
-		private Socket pcsock=null;
+		private Socket pcsock=new Socket();
 		
 //		 static BufferedReader pcin = null;
 		 static PrintWriter pcout = null;
 		 static   DataInputStream pcin = null;
 //				 new DataInputStream(connect.getInputStream());
 //		 static 
-		private String login="連線失敗";
+		public  boolean login=false;
 		private boolean finish=false;
 		@Override
 		public void run() {
@@ -37,43 +37,46 @@ public class connPC extends Thread{
 				InetAddress severInetAddr=InetAddress.getByName("120.105.129.101");
 				pcsock = new Socket(severInetAddr,404);
 		
-
+				
 					
 					pcin = new DataInputStream(pcsock.getInputStream());
-					
+				
 					pcout = new PrintWriter(
 							new OutputStreamWriter(pcsock.getOutputStream()));
-					Thread.sleep(100);
-					login="連線成功";
+				
+					login=true;
 //				while(true){
-					Thread.sleep(1000);
-					boolean reach=true;
-					 if(BluetoothService.Amigo.checktr()==true){
-						 reach=false;
-					 }else {
-						 reach=true;
-					 }
+				
+					Log.i("path","connpc  連線成功");
 					
-					while(finish==false){
-						Thread.sleep(1000);
-					}pcsock.close();
+//					while(finish==false){
+//						
+//					}
 					
+//					pcsock.close();
+//					pcin.close();
+//					pcout.close();
 //				}
 				
 				
-			} catch( IOException | InterruptedException e ){
+			} catch( IOException e ){
 				e.printStackTrace();
 				try{
 //					btSocket.close();
 //					Wifisocket.close();
 					Thread.sleep(1500);
-					
+					Log.i("path","connpc cath 連線失敗");
+					login=false;
 				} catch(InterruptedException e1){
 					e1.printStackTrace();
+					Log.i("path","connpc cath 連線失敗");
+					login=false;
 				}
 //				btSocket = null;
 				
 				try {
+					Log.i("path","connpc cath 連線失敗");
+					login=false;
 					pcsock.close();
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
@@ -91,7 +94,7 @@ public class connPC extends Thread{
 			}
 			finish=T;
 		}
-		public String getlogin(){
+		public boolean getlogin(){
 			return login;
 		}
 }

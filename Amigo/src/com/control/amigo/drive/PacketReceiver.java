@@ -164,9 +164,9 @@ public class PacketReceiver extends Thread {
         }catch(Exception e) {
             e.printStackTrace();
         }
-        int ll=byteToInt(packet[2]);
-        Log.i("pack",  packet[ll+1]+","+packet[ll+2]+" , "+ll);
-        Log.i("pack", "check : "+ calculateCheckSum(packet,ll-1) );
+//        int ll=byteToInt(packet[2]);
+//        Log.i("pack",  packet[ll+1]+","+packet[ll+2]+" , "+ll);
+//        Log.i("pack", "check : "+ calculateCheckSum(packet,ll-1) );
        
     }
 	public void getInfo(){
