@@ -20,7 +20,7 @@ import com.control.amigo.drive.PacketReceiver;
 public class connPC extends Thread{
 	
 
-		private Socket pcsock=new Socket();
+		static Socket pcsock=new Socket();
 		
 //		 static BufferedReader pcin = null;
 		 static PrintWriter pcout = null;
@@ -53,7 +53,7 @@ public class connPC extends Thread{
 //						
 //					}
 					
-//					pcsock.close();
+					
 //					pcin.close();
 //					pcout.close();
 //				}

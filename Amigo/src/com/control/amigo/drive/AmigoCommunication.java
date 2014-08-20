@@ -199,6 +199,7 @@ public class AmigoCommunication implements AmigoProtocol, Runnable {
 	boolean flag=false;
 	public void starttravel(int[] v) throws Exception{
 		tr=new travel(this, v);
+		tr.setT(false);
 		new Thread(tr).start();
 		flag=true;
 		

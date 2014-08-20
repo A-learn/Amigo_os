@@ -32,7 +32,7 @@ public class travel implements Runnable {
 				
 					//Comm.resetPosition
 				pathgo(vi);
-//				Thread.sleep(3000);
+//				Thread.sleep(3500);
 				t=true;
 //				countcirle co=new countcirle();
 //				co.start();
@@ -103,7 +103,7 @@ public class travel implements Runnable {
 		
 			
 		}
-		
+		boolean sourr=true;
 		public void go(int sour,int des) throws Exception{
 			if(isT()==true){
 				Thread.currentThread().isInterrupted();
@@ -165,6 +165,10 @@ public class travel implements Runnable {
 //					}
 			}
 			if(sour==3&&des==2){
+				if(sourr==true){
+					setrotang(180);
+					sourr=false;
+				}
 				setrotang(270);
 				setgodis(360,200);
 				
@@ -175,6 +179,10 @@ public class travel implements Runnable {
 				
 			}
 			if(sour==8&&des==3){
+				if(sourr==true){
+					setrotang(180);
+					sourr=false;
+				}
 				setrotang(270);
 				setgodis(360,250);
 				
@@ -191,6 +199,10 @@ public class travel implements Runnable {
 			}
 			
 			if(sour==4&&des==1){
+				if(sourr==true){
+					setrotang(180);
+					sourr=false;
+				}
 				setrotang(270);
 				setgodis(300,250);
 			}
@@ -199,7 +211,10 @@ public class travel implements Runnable {
 				setgodis(540,250);
 			}
 			if(sour==7&&des==4){
-				setrotang(180);
+				if(sourr==true){
+					setrotang(180);
+					sourr=false;
+				}
 				setrotang(270);
 				setgodis(480,250);
 			}
@@ -291,7 +306,10 @@ public class travel implements Runnable {
 				
 			}
 			if(sour==6&&des==5){
-				setrotang(180);
+				if(sourr==true){
+					setrotang(180);
+					sourr=false;
+				}
 				setrotang(270);
 				setgodis(360,250);
 				
@@ -412,14 +430,18 @@ public class travel implements Runnable {
 						ang0=7;
 							Comm.setAbsoluteHeading(ang0);
 							Thread.sleep(3000);
-							circle++;
+							circle=1;
 							x++;
 							cirflag=true;
 							if(PacketReceiver.mAmigoInfo.getThetaPos()<=ang0-0.5||PacketReceiver.mAmigoInfo.getThetaPos()<=ang0+0.5){
 								break;
 								
 							}
-						} 						
+						} 	
+					else{
+						Comm.setAbsoluteHeading(ang);
+						Thread.sleep(3000);
+					}
 					
 						
 					}catch (Exception e) {
