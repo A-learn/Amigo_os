@@ -32,7 +32,7 @@ public class travel implements Runnable {
 				
 					//Comm.resetPosition
 				pathgo(vi);
-//				Thread.sleep(3500);
+//				Thread.sleep(5000);
 				t=true;
 //				countcirle co=new countcirle();
 //				co.start();
@@ -321,7 +321,7 @@ public class travel implements Runnable {
 //					Comm.setAbsoluteHeading(164);
 //					Thread.sleep(1000);
 //					}
-				setrotang(169);//15
+				setrotang(168);//15
 				setgodis(306,200);
 //				while((PacketReceiver.mAmigoInfo.getThetaPos()<=179||PacketReceiver.mAmigoInfo.getThetaPos()>=182)&&t==false){
 //					Comm.setRotVelocity(16);
@@ -390,9 +390,9 @@ public class travel implements Runnable {
 				while(xt<=x&&t==false){
 					thrstop();
 					avoidbum();
-					xt=xt+0.1;
+					xt=xt+0.05;
 				Comm.setTransVelocity(vel);
-				Thread.sleep(100);
+				Thread.sleep(50);
 				}
 				Comm.setTransVelocity(0);
 			} catch (Exception e) {
@@ -426,11 +426,11 @@ public class travel implements Runnable {
 						{
 //							Comm.setRotVelocity(10);
 						
-						int ang0=((circle+1)*360)-(int)((circle*360+360)/45);
+						int ang0=(int)((circle+1)*360-((circle*360+360)/45));
 						ang0=7;
 							Comm.setAbsoluteHeading(ang0);
 							Thread.sleep(3000);
-							circle=1;
+//							circle=1;
 							x++;
 							cirflag=true;
 							if(PacketReceiver.mAmigoInfo.getThetaPos()<=ang0-0.5||PacketReceiver.mAmigoInfo.getThetaPos()<=ang0+0.5){
@@ -459,7 +459,7 @@ public class travel implements Runnable {
 				int ang2=ang;
 				
 				
-					ang2=ang-(int)((circle*360+ang)/45);
+					ang2=(int)(ang-(circle*360+ang)/45);
 				
 				while((PacketReceiver.mAmigoInfo.getThetaPos()<ang2-0.5||PacketReceiver.mAmigoInfo.getThetaPos()>=ang2+0.5)&&t==false){
 					try {//special ang

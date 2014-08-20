@@ -166,7 +166,7 @@ public class Monitor extends Fragment implements OnClickListener {
 			
 			
 			int mode=-1;
-			/***
+			
 			while(stop==false){
 			
 			try {
@@ -214,11 +214,6 @@ public class Monitor extends Fragment implements OnClickListener {
 				int cx=0;
 				
 				Thread.sleep(1500);
-				 mode=connPC.pcin.readInt();
-				 Log.i("path","mode");
-				
-				if(mode==0||mode==1){
-					
 				
 				int dx=connPC.pcin.readInt();
 				Log.i("path","length");
@@ -237,7 +232,7 @@ public class Monitor extends Fragment implements OnClickListener {
 						}
 					}
 				
-				}//if0.1
+			
 				
 				
 					//pc.setfin(true);
@@ -246,8 +241,8 @@ public class Monitor extends Fragment implements OnClickListener {
 				
 				
 			}//try
-		***/
-			
+	
+			/***
 			String pp=sour.getText().toString(); 
 				int[] temp=new int[pp.length()];
 				for(int i=0;i<temp.length;i++){
@@ -259,8 +254,8 @@ public class Monitor extends Fragment implements OnClickListener {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-		
-			/*** catch (NumberFormatException e) {
+		***/
+			catch (NumberFormatException e) {
 				// TODO Auto-generated catch block
 				 Log.i("path","monitor catch"+pc.getlogin());
 				
@@ -279,7 +274,7 @@ public class Monitor extends Fragment implements OnClickListener {
 				}
 				
 			}//while
-			***/
+			
 				
 			 
 			}	//run
